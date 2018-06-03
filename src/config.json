@@ -1,0 +1,154 @@
+{
+    "families": [
+        "Fira+Sans:400,600",
+        "Pridi:500"
+    ],
+    "fontAwesome": false,
+    "content": [
+        {
+            "name": "Top Paddock",
+            "slug": "top-paddock",
+            "function": "UI, Web Design",
+            "image": "tp-hm2.jpg",
+            "date": "2017",
+            "link": "https://toppaddockcafe.com/",
+            "visuels": [
+                "t-p-01",
+                "t-p-02",
+                "t-p-03",
+                "t-p-04",
+                "t-p-05",
+                "t-p-06"
+            ]
+        },
+        {
+            "name": "Band Some",
+            "slug": "band-some",
+            "function": "Dévelopement wordpress",
+            "image": "bandsome.jpg",
+            "date": "2017",
+            "link": "https://www.behance.net/gallery/30253365/Bandsoeme",
+            "visuels": [
+                "mom1",
+                "mom2",
+                "mom4",
+                "mom5",
+                "mom6"
+            ]
+        },
+        {
+            "name": "Einwick",
+            "slug": "einwick",
+            "function": "UI, Web Design",
+            "image": "einwick.jpg",
+            "date": "2017",
+            "link": "http://www.einwick.com",
+            "visuels": [
+                "enw1",
+                "enw2",
+                "enw3",
+                "enw4",
+                "enw7"
+            ]
+        },
+        {
+            "name": "Ohlin Nyc",
+            "slug": "ohlin-nyc",
+            "function": "Identité graphique",
+            "image": "ohlinb.jpg",
+            "date": "2016",
+            "link": "https://www.behance.net/gallery/28285019/OEHLIN-B",
+            "visuels": [
+                "ohl1",
+                "ohl2",
+                "ohl3",
+                "ohl4",
+                "ohl5",
+                "ohl6"
+            ]
+        },
+        {
+            "name": "Higher ground",
+            "slug": "higher-ground",
+            "function": "UI, Web Design",
+            "image": "higherground2.jpg",
+            "date": "2016",
+            "link": "http://highergroundmelbourne.com.au",
+            "visuels": [
+                "hg1",
+                "hg2",
+                "hg3",
+                "hg4",
+                "hg5"
+            ]
+        },
+        {
+            "name": "Cluse",
+            "slug": "cluse",
+            "function": "UI, Web Design",
+            "image": "cluse-hm.jpg",
+            "date": "2016",
+            "link": "https://www.behance.net/gallery/33810032/Clus",
+            "visuels": [
+                "cluse1",
+                "cluse7",
+                "cluse3",
+                "cluse4",
+                "cluse5",
+                "cluse6"
+            ]
+        }
+        
+    ],
+    "ambiance": [
+        {
+            "slug": "gradient-large",
+            "image": "distort/gradient_large.png"
+        }, 
+        {
+            "slug": "gradient-4",
+            "image": "distort/gradient4.png"
+        },
+        {
+            "slug": "clouds",
+            "image": "distort/clouds.jpg"
+        },
+        {
+            "slug": "crystalize",
+            "image": "distort/crystalize.jpg"
+        },
+        {
+            "slug": "fibers",
+            "image": "distort/fibers.jpg"
+        }, 
+        {
+            "slug": "pointilize",
+            "image": "distort/pointilize.jpg"
+        }, 
+        {
+            "slug": "ripple",
+            "image": "distort/ripple.jpg"
+        },
+        {
+            "slug": "ripple_2",
+            "image": "distort/ripple_2.jpg"
+        }
+    ],
+    "slider": [
+        {
+            "name": "Baba Yaga",
+            "slug": "baba-yaga",
+            "image": "10.jpg"
+        },
+        {
+            "name": "Le crapaud",
+            "slug": "le-crapaud",
+            "image": "11.jpg"
+        },
+        {
+            "name": "Me ne frego",
+            "slug": "me-ne-frego",
+            "image": "12.jpg"
+        }
+    ]
+}

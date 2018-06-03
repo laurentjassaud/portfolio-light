@@ -1,0 +1,200 @@
+ROUTE '/'
+
++ App.vue
+----------
+    # beforeCreate
+        => $ webFontsLoaderTool ==> % FONTS_LOADED
+
+    # created
+        => $$ setMobile(detector.isMobile)
+        => $ fletchDatas
+            [ definit le tableau d'élément à charger dans le preloader ]
+
+    # mounted 
+        => $ init
+            => $ loadComponent [ promesse ]
+                %% IMG_LOADED | Preloader.vue
+                %% FONTS_LOADED | App.vue
+                ==> $ ready
+                    $$ setFirstLoad(false)
+                    % GO_INTRO_COVER
+        => $ addListeners
+            => $ positionMouse
+                % POSITION_MOUSE
+            => $ scrollThrottler
+                % SCROLL
+
+    $ setHeaderWhite
+        [ titraille en blanc ]
+
+    $ setHeaderWhite
+        [ titraille en blanc ]
+
+    $ gotoWork
+        $$ setCurrentWork( [ ref index projet ] )
+        $router(/work/:slug)
+
+    @click|logo => $ returnHome ->
+        [ retourne sur '/']
+        if currentWork!=null
+            [ si on n'est pas sur '/']
+            setCurrentWork(null)
+            Work.vue => $ outro ->
+        if isMenuOpen=true
+            [ on est sur '/' mais le menu est ouvert ]
+            => Menu.vue => $ afficheMenu ->
+
+    ____________________________________________________________________
+
+    + Preloader.vue
+    ----------------
+        # mounted 
+            => $ init   
+                => $ chargementMediaPixi
+                    $$ setRessources(array resources)
+                    => $ imgReady ==> % IMG_LOADED
+                ||
+                => $ chargementMedia
+                    => $ imgReady ==> % IMG_LOADED
+                    
+    ____________________________________________________________________
+
+    + Menu.vue
+    -----------
+        # mounted 
+            => $ init 
+                => $ createListLinkHover
+                    [ crée l'event mouseover sur les titres]
+                    => Distort-canvas.vue|id=menu-pixi => $ changeVisuel ->
+            => $ addListeners
+                %% POSITION_MOUSE => $ deplaceMenu ->
+
+        @click|all_works => $ afficheMenu ->
+
+        @click|lien => $ gotoWork ->
+
+        $ afficheMenu
+            if isMenuOpen=false
+                => $ fixeMenu
+                    [positionne le menu à sa position de base]
+                Distort-canvas.vue|id=menuPixi => $ changeVisuel ->       
+                App.vue => $ setHeaderBlack
+                setMenuOpen(true)
+
+            else
+                if currentWork=null => App.vue => $ setHeaderWhite
+                [ on est sur '/' ]
+                setMenuOpen(false)
+
+        $ deplaceMenu
+            [ élasticité du menu ]
+
+        $ gotoWork
+            if index!=currentWork                
+                $$ setCurrentWork([index du lien])
+                => $ afficheMenu ->
+                App.vue => $ gotoWork
+            else
+                => $ afficheMenu ->                 
+
+        ____________________________________________________________________
+
+        + Distort-canvas.vue
+        ---------------------
+            # mounted 
+                if isFirstLoad=false => $ init ->
+                => $ addListeners
+                    %% ALL_PRELOAD_READY => $ init ->
+                    %% POSITION_MOUSE => $ controlPositionMouse ->
+                
+            -> $ init   
+                [ définit la variable indexVisuelMenu selon id du composant]
+                => $ createStage
+                => $ createFilter
+                => $ resizeStage
+                    => $ resizeImages
+                => $ animateFilters
+                if id=home-pixi => $ intro ->
+            
+            $ controlPositionMouse
+            [ set currentMousePos, utile pour $ animateFilters]
+                
+            $ changeVisuel
+                => $ createFilter
+                => $ resizeStage
+
+            $ intro 
+                [ modifie les paramétres d'animation
+                de l'objet pixi pour le]
+    
+    ____________________________________________________________________
+
+    * routes
+
+        '/'
+        + Cover.vue
+        ------------
+            # mounted 
+                => $ init   
+                    $$ setCoverWork(0)
+                    $$ setAnimated(false)
+
+                => $ addListeners
+                    %% SCROLL => $ updateScroll ->
+                    %% GO_INTRO_COVER => $ animationIntro ->
+
+            @mouseLeave|num_lettre => $ mouseLeave
+                [ gére le menu annexe ]
+
+            @mouseOver|change_projet => $ mouseOver
+                [ gére le menu annexe ]
+
+            @click|change_projet => $ changeProjet
+                [ change le projet de la couverture ]
+                $$ setAnimated(true)
+                    => updateTitre ->
+            
+            @click|titre_h2 => $ gotoWork
+                App.vue => $ gotoWork                    
+
+            $ updateScroll
+                if sens=next
+                    -> $ next_slide
+                else
+                    -> $ prev_slide
+
+            $ animationIntro
+                $$ setAnimated(true)
+                => $ aminCircle
+                    [gére le cercle de progression des éléments de couverture]
+
+            $ next_slide
+                if(isAnimated) return
+                $$ setAnimated(true)
+                    => updateTitre ->
+
+            $ prev_slide
+                if(isAnimated) return
+                $$ setAnimated(true)
+                    => updateTitre ->
+
+            $ updateTitre
+                $$ setCoverWork([ nouvel index ])	
+                Distort-canvas.vue|id=home-pixi => $ changeVisuel
+                => $ changeNavigationAnnexe 
+                    [ modifie l'element actif de la navigation annexe ]
+                $$ setAnimated(false)
+
+        ____________________________________________________________________                
+
+        '/work/:slug'
+        + work.vue
+        -----------
+            # created 
+
+
+            $ outro
+                [ fait l'animation de sortie ]
+                $$ setCurrentWork(null)
+                $router(/)
+                % GO_INTRO_COVER

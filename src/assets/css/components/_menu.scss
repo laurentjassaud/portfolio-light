@@ -1,0 +1,142 @@
+
+#menu-principal{
+    z-index: 11;
+    position: relative;
+    pointer-events: none;
+    .all_works {
+        position: absolute;
+        top: calc(7vw - 6px);
+        right: calc(7vw - 6px);
+        font: 400 normal 13px/13px $basefont;
+        cursor: pointer;
+        line-height: 0px;
+        padding: 14px 6px 14px 6px;
+        pointer-events: auto;
+        z-index: 12;
+        color: $white;
+        span {
+            padding-right: 30px;
+        }
+        .trait1 {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: $white;
+            top: 8px;
+            right: 11px;
+            -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+            -webkit-transition-property: background-color;
+            transition-property: background-color;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+        }
+        .trait2 {
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background: $white;
+            top: 12px;
+            right: 7px;
+            -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+            -webkit-transition-property: background-color;
+            transition-property: background-color;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+        }
+        &.noir {
+            color: $black;
+            .trait1,
+            .trait2 {
+                background: $black;
+            }
+        }
+    }
+    #menu-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: $white;
+        z-index: 10;
+        opacity: 0;
+        #le_menu {
+            font: 500 normal 68px/133px $titraillefont;
+            @include media-breakpoint-down(md) {
+                font: 500 normal 48px/96px $titraillefont;
+            }
+            padding: calc(50vh - 70px) 0 calc(50vh - 70px) 26%;
+            width: 76%;
+            position: relative;
+            ol {
+                list-style-type: none;
+                counter-reset: compteListe;
+                li {
+                    position: relative;
+                    &::before {
+                        counter-increment: compteListe 1;
+                        color: $black;
+                        content: "0" counter(compteListe);
+                        position: absolute;
+                        font: 400 normal 12px/12px $basefont;
+                        top: 40%;
+                        right: calc(100% + 68px);
+                        transform-origin: 100% 100%;
+                        transform: translateY(-50%) rotate(-90deg);
+                    }
+                    & a {
+                        display: block;
+                        color: $black;
+                        text-decoration: none;
+                        text-align-last: left;
+                        cursor: pointer;
+                        &:hover {
+                            -webkit-text-stroke: 1px $black;
+                            text-stroke: 1px $black;
+                            -ms-text-stroke: 1px $black;
+                            color: $white;
+                            &::after {
+                                content: "Discover";
+                                font: 400 normal 12px/12px $basefont;
+                                margin: 0 0 0 22px;
+                                transform: translateY(-14px);
+                                display: inline-block;
+                                opacity: 1;
+                                -webkit-text-stroke: 0px $black;
+                                text-stroke: 0px $black;
+                                -ms-text-stroke: 0px $black;
+                                color: $black;
+                            }
+                        }
+                    }
+                    @include media-breakpoint-up(lg) {
+                        &.actif a {
+                            -webkit-text-stroke: 1px #000;
+                            text-stroke: 1px #000;
+                            -ms-text-stroke: 1px #000;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+        #menu-pixi {
+            width: 24vw;
+            height: calc(100vh - 7.4vw);
+            position: fixed;
+            right: 0;
+            top: 3.7vw;
+            z-index: 2;
+        }
+    }
+}
+
+
+
+
+
+
+
+

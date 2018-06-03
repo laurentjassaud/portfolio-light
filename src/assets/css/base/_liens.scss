@@ -1,0 +1,35 @@
+a {
+    text-decoration: none;
+}
+
+.point {
+    color: $white;
+    transition: 1s;
+    transition-property: color;
+    &.noir {
+        color: $black;
+    }
+    &::after {
+        content: "";
+        width: 3px;
+        height: 3px;
+        background-color: $white;
+        border-radius: 100%;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 7px;
+        pointer-events: none;
+        opacity: 0;
+        transform-origin: 0 100%;
+        transform: scaleY(5);
+        transition-property: background-color, opacity, transform, -webkit-transform;
+        transition-duration: 1s, 0.3s, 0.1s, 0.1s;
+    }
+    &:hover::after {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    &.noir::after {
+        background: $black;
+    }
+}
